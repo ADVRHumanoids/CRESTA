@@ -1,2 +1,2 @@
-# REAct - A semantic driven framework for Robot task Execution Awareness
+# CRESTA: A Cognitivist Robot Execution framework for Semantic-driven Task Awareness
 Website in development. 
