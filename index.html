@@ -90,7 +90,7 @@ Semantic-driven Task Awareness</h1>
                   </a>
               </span> -->
               <span class="link-block">
-                <a href="https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/damiano_gasperini_iit_it/Epvj9iOkAJpOiX-PS1R_BMYBbzw06WX38WykJiO7OS47Eg?e=b1Ejzr"
+                <a href="https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/damiano_gasperini_iit_it/Epvj9iOkAJpOiX-PS1R_BMYBbzw06WX38WykJiO7OS47Eg?e=ovkeoGr"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -117,7 +117,13 @@ Semantic-driven Task Awareness</h1>
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>The advancement of autonomous robots is still in need of a comprehensive framework for task execution awareness, enabling the generation of autonomous responses in unknown dynamic environments. Referred to as situation awareness, this cognitive domain endeavors to enhance the robot’s awareness of its surroundings while it performs a specific task. In this work, we propose CRESTA, a novel bio- inspired cognitivist framework for semantic-driven task aware- ness addressing the intricate challenges of perceiving, navigating and manipulating dynamic environments. The combined utiliza- tion of online planning, reasoning and monitoring along with the perceived environment’s semantic is central to CRESTA’s objective of achieving effective robot awareness. It is designed as an online process, which commences with the collection and analysis of sensors data, progresses through a real-time decision-making phase, and culminates in the execution and monitoring of each action. Being highly modular and robot- agnostic, the proposed framework aims for scalability across diverse robotic platforms and tasks. Additionally, its imple- mentation can be adapted to support a variety of ontologies, reasoning and planning languages. In this work, a ROS-based implementation of CRESTA comes along with demonstrative tasks to showcase its capabilities on CENTAURO robot, offering insights into its potential efficacy in real-world scenarios.
+          <p>The advancement of autonomous robots is still in need of a comprehensive framework for task execution awareness, enabling the generation of autonomous behaviors and responses in unknown dynamic environments.  
+            Situation awareness aims to enhance the robot's understanding of its surroundings while it performs long-horizon tasks. 
+            In this work, we propose CRESTA, a novel bio-inspired cognitivist framework for semantic-driven task awareness addressing the intricate challenges of perceiving, navigating and manipulating dynamic environments.
+            CRESTA's objective of achieving effective robot awareness relies on the perceived environment semantics and on the combined use of online planning, reasoning, monitoring, while also enabling recovery from task level failures.
+            It is designed as a set of online synchronous processes for (a) collecting and analyzing sensors data as well as updating world model description, (b) real-time decision-making and task states monitoring, and (c) execution of each action. 
+            Being highly modular and configurable to assorted robotic systems, the proposed framework aims for adaptability across diverse robotic platforms and tasks. 
+            In this work, a detailed description of CRESTA's framework comes along with demonstrative tasks to showcase its capabilities on CENTAURO robot, offering insights into its potential efficacy in real-world scenarios. In the discussed experimental results, CRESTA leads the robot to navigate towards and manipulate a lever, while recovering from failures by adapting the parameters of its actions, e.g. increasing forces for successfully pushing the object.  
           </p>
         </div> 
         <!-- <img src="static/images/cresta_schema.png" width="70%">
@@ -157,12 +163,25 @@ Semantic-driven Task Awareness</h1>
         <div class="content has-text-justified">
           <!-- <p> Write here. </p> -->
         </div>
-        <img src="static/images/cresta_schema.png" width="100%">
-        <p style="text-align: center;">Fig. 1: Experimental task setup and CRESTA framework overview.</p>
+        <img src="static/images/1_img.png" width="100%">
+        <p style="text-align: center;">Fig. 1: CRESTA framework overview. The hybrid nature of the framework is represented in the schema, distinguishing
+          the high semantic level and the low control level. Perception is illustrated as a separated component because it serves
+          both levels, the first for semantic handling and the second for reactive behaviors, respectively. At each level the framework
+          offers several cutting-edge functions for robot autonomous behaviors in long-horizon tasks. The key ones are the Task
+          Awareness implementing the planning, the Action Awareness monitoring the task states during the task execution and the
+          World Model, which can also implement reasoning queries.</p>
         <br>
-        <img src="static/images/light_off_crop.JPG" width="48%">
-        <img src="static/images/light_on_crop.JPG" width="48%">
-        <p style="text-align: center;">Fig. 2: Experimental lever setup.</p>
+         
+        <img src="static/images/4_img.png" width="100%">
+        <p style="text-align: center;">Fig. 2: Execution Overview. Interaction between CRESTA Task Manager and Action Awareness with their main
+          mechanisms, during the execution of a lever arm pushing scenario example.</p>
+        
+        <br>
+        <!-- <img src="static/images/light_off_crop.JPG" width="48%">
+        <img src="static/images/light_on_crop.JPG" width="48%"> -->
+        <img src="static/images/5_img.png" width="100%">
+        <p style="text-align: center;">Fig. 3: Experimental task setup. Two examples of robot view during experiments are illustrated here, while in the Action
+          Timeline box of Fig. 2 there are some frames extracted from an external camera.</p>
       </div>
     </div>
 
@@ -174,7 +193,7 @@ Semantic-driven Task Awareness</h1>
         <div class="content has-text-justified">
           <!-- <p> Write here. </p> -->
         </div> 
-        <img src="static/images/CRESTA_schema_framework.png" width="100%"> 
+        <img src="static/images/3_img.png" width="100%"> 
         <!-- <p style="text-align: center;">CRESTA Architecture.</p> -->
       </div>
     </div>
@@ -224,7 +243,7 @@ Semantic-driven Task Awareness</h1>
       <div class="column is-four-fifths">
         <h2 class="title is-3">Data</h2>
         <div class="content has-text-justified">
-          <p> All the data corresponding to the experiments showed in the Video are available <a href="https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/damiano_gasperini_iit_it/Epvj9iOkAJpOiX-PS1R_BMYBbzw06WX38WykJiO7OS47Eg?e=b1Ejzr">HERE</a>. 
+          <p> All the data corresponding to the experiments showed in the Video are available <a href="https://istitutoitalianotecnologia-my.sharepoint.com/:f:/g/personal/damiano_gasperini_iit_it/Epvj9iOkAJpOiX-PS1R_BMYBbzw06WX38WykJiO7OS47Eg?e=ovkeoG">HERE</a>. 
           </p>
         </div> 
       </div>
