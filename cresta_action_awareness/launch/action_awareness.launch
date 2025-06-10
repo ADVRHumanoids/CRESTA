@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+ 
+    <node name="cresta_action_awareness" pkg="cresta_action_awareness" type="action_awareness_node" output="screen">
+    </node>
+    
+</launch>

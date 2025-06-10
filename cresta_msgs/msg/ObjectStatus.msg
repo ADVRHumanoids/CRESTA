@@ -1,0 +1,13 @@
+Header header
+string object_class
+int8 object_class_id
+int32 object_ID
+float64 confidence 
+float64[] bounding_box_vertices  
+float64[] bounding_box_center 
+float64[] bounding_box_vertices_meter
+float64[] bounding_box_center_meter
+float64[] bounding_box_wh
+std_msgs/Float64MultiArray segmentation_mask
+sensor_msgs/CompressedImage frame 
+int32 frame_ID

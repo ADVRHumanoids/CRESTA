@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="sensor_topic" default="/sensor_topic"/> 
+    <arg name="cuda_device" default='cpu' doc="Set the cuda device id, e.g. cuda_device:=0 , or 'cpu' if no cuda device available."/>
+    <arg name="verbose" default='false'/> 
+
+    <node name="perception_plugin_template_node" pkg="cresta_perception" type="perception_plugin_template_node" output="screen">
+        <param name="sensor_topic" value="$(arg sensor_topic)"/>
+        <param name="cuda_device" value="$(arg cuda_device)"/>
+        <param name="verbose" value="$(arg verbose)"/>
+    </node>
+
+</launch>

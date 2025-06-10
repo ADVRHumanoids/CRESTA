@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+ 
+     
+
+    <node name="tttask_mgr" pkg="cresta_manager" type="tttask_mgr_node" output="screen">
+    </node>
+
+    
+</launch>
