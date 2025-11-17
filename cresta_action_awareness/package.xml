@@ -1,17 +1,22 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
   <name>cresta_action_awareness</name>
   <version>0.0.0</version>
   <description>The cresta_action_awareness package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <maintainer email="damiano.gasperini@iit.it">damigas</maintainer>
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="damiano.gasperini@iit.it">Damiano Gasperini</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>GPLv3</license>
+  <author>Damiano Gasperini</author>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
@@ -46,17 +51,34 @@
   <!--   <test_depend>gtest</test_depend> -->
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> --> 
-  <buildtool_depend>catkin</buildtool_depend> 
-  <build_depend>rospy</build_depend> 
+ 
   <build_depend>rospack</build_depend>
-  <build_depend>cresta_msgs</build_depend> 
-  <exec_depend>rospy</exec_depend> 
+   
+  <exec_depend>rclpy</exec_depend>
   <exec_depend>rospack</exec_depend>   
-  <exec_depend>cresta_msgs</exec_depend> 
+  
+  <!--exec_depend>motion_stack</exec_depend-->
+  <!--exec_depend>ms_operator</exec_depend-->
 
+  <!--test_depend>easy_robot_control</test_depend-->
+  <!--test_depend>motion_stack</test_depend--> 
+  
+  <!-- These test dependencies are optional
+  Their purpose is to make sure that the code passes the linters -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
 
   <!-- The export tag contains other, unspecified, tags -->
   <!-- <export> -->
     <!-- Other tools can request additional information be placed here -->
+
   <!-- </export> -->
 </package>
+
+

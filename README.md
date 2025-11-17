@@ -1,4 +1,8 @@
-# CRESTA: A Cognitivist Robot Execution framework for Semantic-driven Task Awareness
+# CRESTA ROS2: A Cognitivist Robot Execution framework for Semantic-driven Task Awareness 
+## Note
+This is an alpha version, migration still not completed!
+... work in progress! 
+
 ## Overview
 CRESTA is a skill-based robot control framework addressing Task Awareness built on top of ROS. It brings together:
 - Explicit knowledge representation: i) uses a custom world model so that all robot capabilities, object types,

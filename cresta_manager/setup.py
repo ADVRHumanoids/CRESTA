@@ -1,12 +1,35 @@
-# ! DO NOT MANUALLY INVOKE THIS setup.py, USE CATKIN INSTEAD
+import os
+from glob import glob
+from setuptools import find_packages, setup
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
+package_name = 'cresta_manager'
 
-# fetch values from package.xml
-setup_args = generate_distutils_setup(
-    packages=['cresta_manager'],
-    package_dir={'': 'scripts'},
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=[package_name, package_name + "/core", package_name + "/nodes", package_name + "/ros", package_name + "/utils"],
+    data_files=[
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        # Include all launch files.
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.py', recursive=True)),
+        (os.path.join('share', package_name, 'configs'), glob('configs/**/*', recursive=True)),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    #tests_require=['pytest'],
+    maintainer="Damiano Gasperini",
+    maintainer_email="damiano.gasperini@iit.it",
+    description="TODO: Package description",
+    license="PRIVATE",
+    entry_points={
+        'console_scripts': [
+            f'cresta_manager_node = {package_name}.nodes.cresta_manager_node:main', 
+        ],
+    },
 )
 
-setup(**setup_args)
+ 
+ 
+ 
+ 
