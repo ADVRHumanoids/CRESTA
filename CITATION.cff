@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use CRESTA in your research, please cite the following article."
+type: software
+title: "CRESTA: A Cognitivist Robot Execution framework for Semantic-driven Task Awareness"
+authors:
+  - family-names: Gasperini
+    given-names: Damiano
+  - family-names: Muratore
+    given-names: Luca
+  - family-names: Tsagarakis
+    given-names: Nikos
+url: "https://github.com/ADVRHumanoids/CRESTA"
+keywords:
+  - Autonomous robots
+  - Planning and execution
+  - Situation awareness
+  - Task planning
+preferred-citation:
+  type: article
+  title: "CRESTA: A Cognitivist Robot Execution framework for Semantic-driven Task Awareness"
+  authors:
+    - family-names: Gasperini
+      given-names: Damiano
+    - family-names: Muratore
+      given-names: Luca
+    - family-names: Tsagarakis
+      given-names: Nikos
+  journal: "Robotics and Autonomous Systems"
+  volume: 197
+  start: 105303
+  year: 2026
+  issn: "0921-8890"
+  doi: "10.1016/j.robot.2025.105303"
+  url: "https://www.sciencedirect.com/science/article/pii/S0921889025004002"
