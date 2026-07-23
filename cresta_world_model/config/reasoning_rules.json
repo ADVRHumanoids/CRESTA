@@ -1,0 +1,201 @@
+{
+    "rules":[
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                        "o1": {"type": "Obj", "initialization": null} 
+                    },
+                    "conditions":{                                                 
+                        "approach": {
+                            "type": "action",
+                            "parameters":{ 
+                                "o1": {"type": "Obj"} 
+                            }, 
+                            "value": true, 
+                            "cartesian_pose_reached": true
+                        } 
+                    },
+                    "then": {
+                        "approached":{ 
+                            "type": "fluent", 
+                            "parameters": ["o1"], 
+                            "value": true 
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                    },
+                    "conditions":{                                                 
+                        "approach": {
+                            "type": "action",
+                            "parameters":{}, 
+                            "value": true
+                        }
+                    },
+                    "then": {
+                        "homing":{ 
+                            "type": "fluent",
+                            "value": false
+                        },
+                        "contact_happened":{ 
+                            "type": "fluent",
+                            "value": false
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                    },
+                    "conditions":{                                                 
+                        "push": {
+                            "type": "action",
+                            "parameters":{}, 
+                            "value": true
+                        }
+                    },
+                    "then": {
+                        "approached":{ 
+                            "type": "fluent",
+                            "value": null
+                        },
+                        "homing":{ 
+                            "type": "fluent",
+                            "value": false
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                    },
+                    "conditions":{                                                 
+                        "home": {
+                            "type": "action",
+                            "parameters":{}, 
+                            "value": true
+                        }
+                    },
+                    "then": {
+                        "approached":{ 
+                            "type": "fluent",
+                            "value": null
+                        },
+                        "contact_happened":{ 
+                            "type": "fluent",
+                            "value": false
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                    },
+                    "conditions":{                                                 
+                        "home": {
+                            "type": "action",
+                            "parameters":{}, 
+                            "value": true, 
+                            "cartesian_pose_reached": true
+                        } 
+                    },
+                    "then": {
+                        "homing":{ 
+                            "type": "fluent",
+                            "value": true
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": { 
+                    },
+                    "conditions":{                                                 
+                        "push": {
+                            "type": "action",
+                            "parameters":{}, 
+                            "value": true
+                        },
+                        "contact_logic":{ 
+                            "type": "fluent",
+                            "value": true
+                        } 
+                    },
+                    "then": {
+                        "contact_happened":{ 
+                            "type": "fluent",
+                            "value": true
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": {  
+                        "o1": { "type": "Door"} 
+                    },
+                    "conditions":{   
+                        "open_logic_vision":{ 
+                            "parameters":{ 
+                                "o1": {"type": "Obj"} 
+                            },
+                            "type": "fluent",
+                            "value": true
+                        } 
+                    },
+                    "then": {
+                        "opened":{ 
+                            "type": "fluent", 
+                            "parameters": ["o1"], 
+                            "value": true 
+                        }
+                    }
+                }         
+            }
+        },
+        {
+            "rule": {
+                "if": {
+                    "parameters": {  
+                        "o1": { "type": "Door"} 
+                    },
+                    "conditions":{   
+                        "open_logic_vision":{ 
+                            "parameters":{ 
+                                "o1": {"type": "Door"} 
+                            },
+                            "type": "fluent",
+                            "value": false
+                        } 
+                    },
+                    "then": {
+                        "opened":{ 
+                            "type": "fluent", 
+                            "value": null 
+                        }
+                    }
+                }         
+            }
+        }
+    ]
+}

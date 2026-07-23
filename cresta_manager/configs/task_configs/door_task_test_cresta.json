@@ -1,0 +1,125 @@
+{
+    "task_name": "door_task",
+    "actions": {
+        "approach": {},
+        "push": {},
+        "home": {}
+    },
+
+    "objects": {
+        "types": {
+            "Obj":{}, 
+            "Door":{"father": "Obj", "managed_by":{"perception": ["yolo"]} }, 
+            "Handle":{"father": "Obj", "managed_by":{"perception": ["yolo"]} }
+        },
+        "instances": { 
+        }
+    },
+    
+    "fluents": {
+        "object_detected": {
+            "parameters":{
+                "o":{"type":"Obj"}
+            },
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"ontology": ["procedural"]},
+            "property_for": {"object_types":["Door", "Handle"]}
+        },
+        "approached": {
+            "parameters":{
+                "o":{"type":"Obj"}
+            },
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"reasoner": ["default_reasoner"]} 
+        },
+        "contact_happened": {
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"reasoner": ["default_reasoner"]}
+        },
+        "contact_logic": {
+            "source": "/force_estimation_logic/output",
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"perception": ["force_estimation_logic"]}
+        },
+        "homing": {  
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"reasoner": ["default_reasoner"]}
+        },
+        "open_logic_force": {
+            "source": "/force_estimation_logic/output",
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"perception": ["force_estimation_logic"]}
+        },
+        "open_logic_vision": {
+            "parameters":{
+                "o":{"type":"Door"}
+            },
+            "source": "/depth_inference/output",
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"perception": ["depth_inference"]}
+        },
+        "opened": {
+            "parameters":{
+                "o":{"type":"Obj"}
+            }, 
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"reasoner": ["default_reasoner"]}
+        },
+        "isPartof": {
+            "parameters":{
+                "o1":{"type":"Obj"},
+                "o2":{"type":"Obj"}
+            },
+            "type": "bool",
+            "default_initialization": false,
+            "initialization": null,
+            "managed_by": {"ontology": ["default"]},
+            "property_for": {"object_types":["Door", "Handle"]}
+        }
+    },
+
+    "goals": { 
+         
+        "operator1": {
+            "key": "Exists",
+            "parameters": { 
+                "d": {"type": "Door"} 
+            },
+            "fluents": {
+                "opened": { 
+                    "value": true, 
+                    "parameters": [
+                        "d"
+                    ]
+                }
+            },
+            "value": true
+        },
+        "homing": {
+            "value": true
+        }
+    },
+
+    "simulator": {
+         
+    }
+}
+
+
+

@@ -1,0 +1,14 @@
+import rospy
+from cresta_world_model.ros.default_reasoner_mgr import *
+
+        
+def main():
+    try:
+        node = DefaultReasonerManager()
+        node.run()
+    except rospy.ROSInterruptException:
+        pass
+     
+
+if __name__ == '__main__':
+    main()

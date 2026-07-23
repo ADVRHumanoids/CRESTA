@@ -36,7 +36,7 @@ class ActionAwareness():
             self.objects_instance_types == None:
             rospy.sleep(0.1)
 
-        # initialize client handle for the Task Action Plan service 
+        # Initialize client handle for the Task Action Plan service 
         rospy.wait_for_service('/tttask_manager/tttask/tap_service')
         try:
             self.tap_service = rospy.ServiceProxy('/tttask_manager/tttask/tap_service', TaskActionPlan)   
@@ -46,7 +46,7 @@ class ActionAwareness():
         print("(Action Awareness) TAP Service initialized", flush=True)
 
         
-        # initialize client handle for the aw service to TTTAsk manager 
+        # Initialize client handle for the aw service to TTTAsk manager 
         rospy.wait_for_service('/tttask_manager/tttask/action_awareness_service')
         try:
             self.action_awareness_service = rospy.ServiceProxy('/tttask_manager/tttask/action_awareness_service', ClientToServerInt) 
@@ -55,7 +55,7 @@ class ActionAwareness():
             return
         print("(Action Awareness) Action Awareness Service for feedback to TTTask initialized", flush=True)
         
-        # initialize client handle for the call_action_service
+        # Initialize client handle for the call_action_service
         rospy.wait_for_service('/xbot_actions/call_action_service')
         try:
             self.call_action_service = rospy.ServiceProxy('/xbot_actions/call_action_service', ClientToServerString) 
@@ -65,11 +65,11 @@ class ActionAwareness():
         print("(Action Awareness) Action Service initialized", flush=True)
 
 
-        # init Subscribers
+        # Initialize Subscribers
         action_mode_sub = rospy.Subscriber('/wm_reasoner_mgr/actions_mode_reasoner/output', String, self.getActionMode )
 
 
-        # initialize Action Status publisher
+        # Initialize Action Status publisher
         self.act_pub = rospy.Publisher('/action_awareness/action_exe', ActionStatus, queue_size = 10)
 
 
@@ -577,6 +577,8 @@ class ActionAwareness():
         # - 2 if all preconditions are matching & at least an effect is not satisfied yet --> move on 
         # - 3 if all preconditions are matching & all effects are satisfied --> success
         # - 4 if the goal is achieved 
+
+        # TODO: check the type of fluent, now assuming booleans 
    
         """
         if all(internal_KB[cond_goal].value == cond_goal.value for cond_goal in goal.conditions):

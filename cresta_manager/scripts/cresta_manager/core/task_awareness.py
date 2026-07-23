@@ -23,14 +23,15 @@ class  TaskAwareness():
         self.KEY_PARAMETERS = ['Exists', 'Forall']
         self.KEY_ONE_FLUENT = ['Exists', 'Forall']
 
+        # Initialize task problem 
         self.task_data = task_data
         self.actions_data = actions_data
         self.init_problem()
         
 
     def init_problem(self):
-        self.problem = Problem(self.task_data["task_name"])
 
+        self.problem = Problem(self.task_data["task_name"])
 
         self.task_objects = None
 
@@ -67,7 +68,7 @@ class  TaskAwareness():
                 else: 
                     print("(Task Awareness) ERROR while setting object instance={}: type not available".format(instance))
       
-
+        # Initialize fluents 
         if "fluents" in self.task_data:
             fluents_dict = self.task_data["fluents"]
             for fluent in fluents_dict:
@@ -77,7 +78,7 @@ class  TaskAwareness():
                 if "type" in fluents_dict[fluent] and fluents_dict[fluent]["type"] == "bool" : 
                     fluent_type = "BoolType()"
                 
-                else:  
+                else:  # TODO: expand fluent types
                     print("(Task Awareness) ERROR: type of fluent not supported.", flush=True)
                      
 
@@ -119,7 +120,7 @@ class  TaskAwareness():
                                 param_list = init["parameters"]
                                 isfirst = True 
                                 for param in param_list:
-                                    if param in self.objects_instances:  
+                                    if param in self.objects_instances:  # TODO: add check if fluent's expected param type is equal to object type 
                                         if isfirst:
                                             isfirst = False
                                             cmd = cmd + "locals()["+"'"+param+"'"+"]"
@@ -147,7 +148,7 @@ class  TaskAwareness():
         else: 
             print("(Task Awareness) ERROR: in task data there are NOT fluents.")
 
-    
+        # Initialize actions 
         actions_list = list(self.actions_data.keys())
         for action in actions_list:
             if action not in self.task_data["actions"]:
@@ -192,7 +193,7 @@ class  TaskAwareness():
                     print("(Task Awareness) ERROR while initializing action={} (w/o param): exec taking bad command: \n".format( action), cmd )
      
             
-             
+            # Adding preconditions to action
             preconditions_dict = self.actions_data[action]["preconditions"]
             for fluent in preconditions_dict: 
                 fluent_info = preconditions_dict[fluent]
@@ -206,7 +207,7 @@ class  TaskAwareness():
 
                     isfirst = True 
                     for param in act_param_info:
-                        if "type" in act_param_info[param] and act_param_info[param]["type"] in self.objects_types:  
+                        if "type" in act_param_info[param] and act_param_info[param]["type"] in self.objects_types: # TODO: check that param type is consistent with the fluent 
                             if isfirst:
                                 isfirst = False
                                 cmd = cmd + "locals()["+"'"+param+"'"+"]"
@@ -242,7 +243,7 @@ class  TaskAwareness():
                         except:
                             print("(Task Awareness) ERROR while initializing negative precondition fluent={} of action={} (w/o param): exec taking bad command: \n".format(fluent, action), cmd )
      
-            
+            # Adding effects to action
             effects_dict = self.actions_data[action]["effects"]
             for fluent in effects_dict:  
                 fluent_info = effects_dict[fluent]
@@ -253,7 +254,7 @@ class  TaskAwareness():
 
                     isfirst = True 
                     for param in act_param_info:
-                        if "type" in act_param_info[param] and act_param_info[param]["type"] in self.objects_types:  
+                        if "type" in act_param_info[param] and act_param_info[param]["type"] in self.objects_types:  # TODO: check that param type is consistent with the fluent
                             if isfirst:
                                 isfirst = False
                                 cmd = cmd + "locals()["+"'"+param+"'"+"]"
@@ -288,7 +289,7 @@ class  TaskAwareness():
                             print("(Task Awareness) ERROR while initializing negative effect fluent={} of action={} (w/o param): exec taking bad command: \n".format(fluent, action), cmd )
      
 
-             
+            # Adding action to problem 
             cmd = "self.problem.add_action(self."+action+")" 
             try: 
                 exec(cmd) 
@@ -396,7 +397,6 @@ class  TaskAwareness():
                 else: 
                     print("(Task Awareness) ERROR while setting object instance={}: type not available".format(instance))
       
-
         if "fluents" in self.task_data:
             fluents_dict = self.task_data["fluents"]
             for fluent in fluents_dict:
@@ -405,7 +405,7 @@ class  TaskAwareness():
                 if "type" in fluents_dict[fluent] and fluents_dict[fluent]["type"] == "bool" : 
                     fluent_type = "BoolType()"
                 
-                else:  
+                else:  # TODO: expand fluent types
                     print("(Task Awareness) ERROR: type of fluent not supported.", flush=True)
                      
 
@@ -448,7 +448,7 @@ class  TaskAwareness():
                                 param_list = init["parameters"]
                                 isfirst = True 
                                 for param in param_list:
-                                    if param in self.objects_instances:  
+                                    if param in self.objects_instances:  # TODO: add check if fluent's expected param type is equal to object type
                                         if isfirst:
                                             isfirst = False
                                             cmd = cmd + "locals()["+"'"+param+"'"+"]"
@@ -477,7 +477,6 @@ class  TaskAwareness():
         else: 
             print("(Task Awareness) ERROR: in task data there are NOT fluents.")
 
-    
         actions_list = list(self.actions_data.keys())
         for action in actions_list:
             

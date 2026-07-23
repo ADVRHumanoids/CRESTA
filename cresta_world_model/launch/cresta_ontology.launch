@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 
 <launch>
-  
+    
+    <!-- Ontology manager -->
     <node name="ontology_mgr" pkg="cresta_world_model" type="ontology_mgr_node" output="screen">
     </node>
 
+    <!-- Plugins -->
     <node name="proc_ontology" pkg="cresta_world_model" type="procedural_ontology_mgr_node" output="screen">
     </node>
  

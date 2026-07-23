@@ -1,0 +1,14 @@
+import rospy
+from cresta_perception.ros.yolo_inference import *
+
+        
+def main():
+    try:
+        node = YOLOInference()
+        node.run()
+    except rospy.ROSInterruptException:
+        pass
+     
+
+if __name__ == '__main__':
+    main()

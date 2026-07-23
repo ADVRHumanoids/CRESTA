@@ -1,0 +1,108 @@
+{
+    "approach": {
+        "parameters": {
+            "o1": { "type": "Obj"}
+        },
+        "preconditions": { 
+            "object_detected": {
+                "parameters":{
+                    "o1":{"type":"Obj"}
+                },
+                "value": true 
+            }, 
+            "opened": {
+                "parameters":{
+                    "o2":{"type":"Door", "instance":"door0"}
+                },
+                "value": false
+            },
+            "approached": {
+                "parameters":{
+                    "o1":{"type":"Obj"}
+                },
+                "value": false
+            },
+            "homing": {
+                "value": true,
+                "check_exe": false
+            }
+        },
+        "effects": {
+            "approached": {
+                "parameters":{
+                    "o1":{"type":"Obj"}
+                },
+                "value": true
+            },
+            "homing": {
+                "value": false
+            }
+        }
+    },
+
+    "push": {
+        "parameters": {
+            "o1": { "type": "Handle"},
+            "o2": { "type": "Door"}
+        },
+        "preconditions": {
+            "isPartof": {
+                "parameters":{
+                    "o1":{"type":"Handle"},
+                    "o2":{"type":"Door"}
+                },
+                "value": true
+            },
+            "opened": {
+                "parameters":{
+                    "o2":{"type":"Door"}
+                },
+                "value": false
+            },
+            "object_detected": {
+                "parameters":{
+                    "o1":{"type":"Handle"}
+                },
+                "value": true 
+            },             
+            "approached": {
+                "parameters":{
+                    "o1":{"type":"Handle"}
+                },
+                "value": true,
+                "check_exe": false
+            }
+        }, 
+        "effects": {  
+            "contact_happened": {
+                "value": true
+            },
+            "approached": {
+                "parameters":{
+                    "o1":{"type":"Handle"}
+                },
+                "value": false
+            },
+            "opened": {
+                "parameters":{
+                    "o2":{"type":"Door"}
+                },
+                "value": true
+            }
+        }
+    },
+
+    "home": {
+        "preconditions": {
+            "homing": {
+                "value": false
+            } 
+        },
+        "effects": {
+            "homing": {
+                "value": true
+            }
+        }
+    } 
+}
+ 

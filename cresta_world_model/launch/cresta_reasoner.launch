@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 
 <launch>
+    <!-- Args  -->
+    <arg name="reasoning_rules_path" default="$(find cresta_world_model)/config/reasoning_rules.json" />
  
+    <!-- Reasoner manager -->
     <node name="reasoner_mgr" pkg="cresta_world_model" type="reasoner_mgr_node" output="screen">
     </node>
- 
+
+    <!-- Plugins -->
+    <node name="default_reasoner_mgr" pkg="cresta_world_model" type="default_reasoner_mgr_node" output="screen">
+        <param name="reasoning_rules_path" value="$(arg reasoning_rules_path)"/>
+    </node>
     
 </launch>

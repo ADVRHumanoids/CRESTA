@@ -171,6 +171,7 @@ include_directories(
 catkin_install_python(PROGRAMS
   nodes/world_model_mgr_node
   nodes/reasoner_mgr_node 
+  nodes/default_reasoner_mgr_node
   nodes/ontology_mgr_node
   nodes/procedural_ontology_mgr_node 
 

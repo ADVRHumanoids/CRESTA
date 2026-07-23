@@ -169,6 +169,7 @@ include_directories(
 
 catkin_install_python(PROGRAMS
   nodes/perception_mgr_node
+  nodes/yolo_inference_node
   nodes/perception_plugin_template_node 
   
   # nodes/test/perception_test_node
@@ -199,6 +200,7 @@ catkin_install_python(PROGRAMS
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
   launch/cresta_perception.launch 
+  launch/yolo_inference.launch
   launch/perception_plugin_template.launch 
 #   # myfile1
 #   # myfile2

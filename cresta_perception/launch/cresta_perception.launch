@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 
 <launch>
+    <!-- Args  -->
     <!-- <arg name="weights_path" default="$(find cresta_perception)/weights" /> -->
  
+    <!-- Perception -->
     <node name="perception_mgr" pkg="cresta_perception" type="perception_mgr_node" output="screen">
         <!-- <param name="weights_path" value="$(arg weights_path)"/> -->
     </node>
+    
 </launch>
